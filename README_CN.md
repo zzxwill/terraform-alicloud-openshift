@@ -1,8 +1,10 @@
 # AliCloud Terraform OpenShift module
+
 For English, please visit [English](README.md)
 
-
 在阿里云 ECS 里一键部署 OpenShift 的 Terraform module.
+
+![alt text](openshift.png)
 
 使用了以下资源:
 
@@ -16,6 +18,7 @@ Terraform `~>  v0.12.5`
 ## 使用方法
 
 ### 1) 设置阿里云 access key 环境变量.
+
 ```shell script
 export ALICLOUD_ACCESS_KEY=xxx
 export ALICLOUD_SECRET_KEY=xxx
@@ -23,6 +26,7 @@ export ALICLOUD_SECRET_KEY=xxx
 ```
 
 ### 2) 在 `main.tf` 里包含 `OpenShift` module
+
 ```hcl
 module "openshift" {
   source = "../../modules"
@@ -30,6 +34,7 @@ module "openshift" {
 ```
 
 ### 3) 在 `variables.tf` 设置公钥等信息。
+
 ```hcl
 variable "key_name" {
   default = "poc"
@@ -38,11 +43,37 @@ variable "key_name" {
 variable "public_key" {
   default = "ssh-rsa xxx"
 }
-
 ```
 
+### 4) `terraform` 命令执行该 module
+
+
+```shell script
+terraform init
+terraform apply
+```
+
+你将看到如下输出：
+
+```text
+Apply complete! Resources: 11 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+OpenShift = https://x.x.x.x:8443/console
+Password = 123456
+Username = admin
+```
+
+### 5) OpenShift 环境已经准备就绪，尽情玩耍吧。
+
+![alt text](openshift_console.jpg)
+
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## 输入
+
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | region  | The region ID used to launch this module resources. If not set, it will be sourced from followed by ALICLOUD_REGION environment variable and profile | string  | ""  | yes  |
@@ -66,7 +97,6 @@ variable "public_key" {
 | OpenShift  | OpenShift URL  |
 | Username  | The user name to login in OpenShift  |
 | Password  | The password to login in OpenShift  |
-
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

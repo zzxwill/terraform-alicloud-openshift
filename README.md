@@ -4,11 +4,12 @@
 
 A Terraform module for deploying OpenShift on AliCloud ECS.
 
+![alt text](openshift.png)
+
 These types of resources are supported:
 
 * [ECS](https://www.terraform.io/docs/providers/alicloud/r/instance.html)
 * [VPC](https://www.terraform.io/docs/providers/alicloud/r/vpc.html)
-
 
 ## Terraform versions
 
@@ -17,6 +18,7 @@ Terraform `~>  v0.12.5`
 ## Usage
 
 ### 1) Export AliCloud access key and secret key as environment variables.
+
 ```shell script
 export ALICLOUD_ACCESS_KEY=xxx
 export ALICLOUD_SECRET_KEY=xxx
@@ -24,6 +26,7 @@ export ALICLOUD_SECRET_KEY=xxx
 ```
 
 ### 2) Include the module in `main.tf`
+
 ```hcl
 module "openshift" {
   source = "../../modules"
@@ -31,6 +34,7 @@ module "openshift" {
 ```
 
 ### 3) Set your own public key in `variables.tf`
+
 ```hcl
 variable "key_name" {
   default = "poc"
@@ -39,11 +43,37 @@ variable "key_name" {
 variable "public_key" {
   default = "ssh-rsa xxx"
 }
-
 ```
 
+
+### 4) Run the module with `terraform` command
+
+```shell script
+terraform init
+terraform apply
+```
+
+You will see output as below:
+
+```text
+Apply complete! Resources: 11 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+OpenShift = https://x.x.x.x:8443/console
+Password = 123456
+Username = admin
+```
+
+### 5) Have fun with OpenShift
+
+![alt text](openshift_console.jpg)
+
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Inputs
+
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | region  | The region ID used to launch this module resources. If not set, it will be sourced from followed by ALICLOUD_REGION environment variable and profile | string  | ""  | yes  |
@@ -67,7 +97,6 @@ variable "public_key" {
 | OpenShift  | OpenShift URL  |
 | Username  | The user name to login in OpenShift  |
 | Password  | The password to login in OpenShift  |
-
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
