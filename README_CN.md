@@ -1,36 +1,35 @@
 # AliCloud Terraform OpenShift module
+For English, please visit [English](README.md)
 
-也可访问 [中文](README_CN.md)
 
-A Terraform module for deploying OpenShift on AliCloud ECS.
+在阿里云 ECS 里一键部署 OpenShift 的 Terraform module.
 
-These types of resources are supported:
+使用了以下资源:
 
 * [ECS](https://www.terraform.io/docs/providers/alicloud/r/instance.html)
 * [VPC](https://www.terraform.io/docs/providers/alicloud/r/vpc.html)
 
-
-## Terraform versions
+## Terraform 版本
 
 Terraform `~>  v0.12.5`
 
-## Usage
+## 使用方法
 
-### 1) Export AliCloud access key and secret key as environment variables.
+### 1) 设置阿里云 access key 环境变量.
 ```shell script
 export ALICLOUD_ACCESS_KEY=xxx
 export ALICLOUD_SECRET_KEY=xxx
 
 ```
 
-### 2) Include the module in `main.tf`
+### 2) 在 `main.tf` 里包含 `OpenShift` module
 ```hcl
 module "openshift" {
   source = "../../modules"
 }
 ```
 
-### 3) Set your own public key in `variables.tf`
+### 3) 在 `variables.tf` 设置公钥等信息。
 ```hcl
 variable "key_name" {
   default = "poc"
@@ -43,7 +42,7 @@ variable "public_key" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Inputs
+## 输入
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | region  | The region ID used to launch this module resources. If not set, it will be sourced from followed by ALICLOUD_REGION environment variable and profile | string  | ""  | yes  |
@@ -60,7 +59,7 @@ variable "public_key" {
 | disk_size  | The system disk size used to launch one or more ecs instances.  | string  | "40"  |  no |
 | disk_count  | The count of the system disks  | int  | 1  |  yes |
 
-## Outputs
+## 输出
 
 | Name | Description |
 |------|-------------|
@@ -71,10 +70,10 @@ variable "public_key" {
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## Authors
+## 作者
 
-Module managed by [zzxwill](https://github.com/zzxwill) with code source in [terraform-alicloud-openshift](https://github.com/zzxwill/terraform-alicloud-openshift).
+Openshift 一键部署 module 又 [zzxwill](https://github.com/zzxwill) 开发和维护，源代码为 [terraform-alicloud-openshift](https://github.com/zzxwill/terraform-alicloud-openshift).
 
 ## License
 
-MIT Licensed. See LICENSE for full details.
+MIT Licensed.

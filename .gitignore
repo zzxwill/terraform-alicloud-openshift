@@ -1,0 +1,6 @@
+.terraform
+.terraform.tfstate.lock.info
+.terraform/plugins/darwin_amd64/lock.json
+terraform.tfstate
+terraform.tfstate.backup
+.idea
