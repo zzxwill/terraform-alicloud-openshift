@@ -4,7 +4,7 @@
 
 A Terraform module for deploying OpenShift on AliCloud ECS.
 
-![alt text](openshift.png)
+![alt text](https://github.com/zzxwill/terraform-alicloud-openshift/raw/master/openshift.png)
 
 These types of resources are supported:
 
@@ -67,7 +67,7 @@ Username = admin
 
 ### 5) Have fun with OpenShift
 
-![alt text](openshift_console.jpg)
+![alt text](https://github.com/zzxwill/terraform-alicloud-openshift/raw/master/openshift_console.jpg)
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

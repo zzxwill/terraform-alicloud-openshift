@@ -4,7 +4,7 @@ For English, please visit [English](README.md)
 
 在阿里云 ECS 里一键部署 OpenShift 的 Terraform module.
 
-![alt text](openshift.png)
+![alt text](https://github.com/zzxwill/terraform-alicloud-openshift/raw/master/openshift.png)
 
 使用了以下资源:
 
@@ -67,8 +67,7 @@ Username = admin
 
 ### 5) OpenShift 环境已经准备就绪，尽情玩耍吧。
 
-![alt text](openshift_console.jpg)
-
+![alt text](https://github.com/zzxwill/terraform-alicloud-openshift/raw/master/openshift_console.jpg)
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
