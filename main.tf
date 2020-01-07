@@ -40,7 +40,7 @@ locals {
 
 resource "null_resource" "openshift" {
   provisioner "local-exec" {
-    command = "sleep 30 && scp -o StrictHostKeyChecking=no okd.sh root@${local.instance_id}:/opt && ssh ${local.instance_id} sh /opt/okd.sh ${local.instance_id}"
+    command = "sleep 30 && scp -o StrictHostKeyChecking=no okd.sh root@${local.instance_id}:/opt && ssh root@${local.instance_id} sh /opt/okd.sh ${local.instance_id}"
   }
 
   connection {
